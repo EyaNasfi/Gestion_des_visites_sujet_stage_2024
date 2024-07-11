@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludiflex | Login & Registration</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+body{
+background: url("{{asset('scgg.jpg')}}");
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+overflow: hidden;
+}
+.wrapper{
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 110vh;
+background: rgba(39, 39, 39, 0.4);
+}
+.nav{
+position: fixed;
+top: 0;
+display: flex;
+justify-content: space-around;
+width: 100%;
+height: 100px;
+line-height: 100px;
+background: linear-gradient(rgba(39,39,39, 0.6), transparent);
+z-index: 100;
+}
+.nav-logo p{
+color: white;
+font-size: 25px;
+font-weight: 600;
+}
+.nav-menu ul{
+display: flex;
+}
+.nav-menu ul li{
+list-style-type: none;
+}
+.nav-menu ul li .link{
+text-decoration: none;
+font-weight: 500;
+color: #fff;
+padding-bottom: 15px;
+margin: 0 25px;
+}
+.link
+, .active{
+border-bottom: 2px solid #fff;
+}
+.nav-button .btn{
+width: 130px;
+height: 40px;
+font-weight: 500;
+background: rgba(255, 255, 255, 0.4);
+border: none;
+border-radius: 30px;
+cursor: pointer;
+transition: .3s ease;
+}
+.btn
+{
+background: rgba(255, 255, 255, 0.3);
+}
+#registerBtn{
+margin-left: 15px;
+}
+.btn.white-btn{
+background: rgba(255, 255, 255, 0.7);
+}
+.btn.btn.white-btn
+{
+background: rgba(255, 255, 255, 0.5);
+}
+.nav-menu-btn{
+display: none;
+}
+.form-box{
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 512px;
+height: 420px;
+overflow: hidden;
+z-index: 2;
+}
+.login-container{
+position: absolute;
+left: 4px;
+width: 500px;
+display: flex;
+flex-direction: column;
+transition: .5s ease-in-out;
+}
+.register-container{
+position: absolute;
+right: -520px;
+width: 500px;
+display: flex;
+flex-direction: column;
+transition: .5s ease-in-out;
+}
+.top span{
+color: #fff;
+font-size: small;
+padding: 10px 0;
+display: flex;
+justify-content: center;
+}
+.top span a{
+font-weight: 500;
+color: #fff;
+margin-left: 5px;
+}
+header{
+color: #fff;
+font-size: 30px;
+text-align: center;
+padding: 10px 0 30px 0;
+}
+.two-forms{
+display: flex;
+gap: 10px;
+}
+.input-field{
+font-size: 15px;
+background: rgba(255, 255, 255, 0.2);
+color: #fff;
+height: 50px;
+width: 100%;
+padding: 0 10px 0 45px;
+border: none;
+border-radius: 30px;
+outline: none;
+transition: .2s ease;
+}
+.input-field
+, .input-field
+{
+background: rgba(255, 255, 255, 0.25);
+}
+::-webkit-input-placeholder{
+color: #fff;
+}
+.input-box i{
+position: relative;
+top: -35px;
+left: 17px;
+color: #fff;
+}
+.submit{
+font-size: 15px;
+font-weight: 500;
+color: black;
+height: 45px;
+width: 100%;
+border: none;
+border-radius: 30px;
+outline: none;
+background: rgba(255, 255, 255, 0.7);
+cursor: pointer;
+transition: .3s ease-in-out;
+}
+.submit
+{
+background: rgba(255, 255, 255, 0.5);
+box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+}
+.two-col{
+display: flex;
+justify-content: space-between;
+color: #fff;
+font-size: small;
+margin-top: 10px;
+}
+.two-col .one{
+display: flex;
+gap: 5px;
+}
+.two label a{
+text-decoration: none;
+color: #fff;
+}
+.two label a
+{
+text-decoration: underline;
+}
+@media only screen and (max-width: 786px){
+.nav-button{
+display: none;
+}
+.nav-menu.responsive{
+top: 100px;
+}
+.nav-menu{
+position: absolute;
+top: -800px;
+display: flex;
+justify-content: center;
+background: rgba(255, 255, 255, 0.2);
+width: 100%;
+height: 90vh;
+backdrop-filter: blur(20px);
+transition: .3s;
+}
+.nav-menu ul{
+flex-direction: column;
+text-align: center;
+}
+.nav-menu-btn{
+display: block;
+}
+.nav-menu-btn i{
+font-size: 25px;
+color: #fff;
+padding: 10px;
+background: rgba(255, 255, 255, 0.2);
+border-radius: 50%;
+cursor: pointer;
+transition: .3s;
+}
+.nav-menu-btn i
+{
+background: rgba(255, 255, 255, 0.15);
+}
+}
+@media only screen and (max-width: 540px) {
+.wrapper{
+min-height: 100vh;
+}
+.form-box{
+width: 100%;
+height: 500px;
+}
+.register-container, .login-container{
+width: 100%;
+padding: 0 20px;
+}
+.register-container .two-forms{
+flex-direction: column;
+gap: 0;
+}
+}
+/* Styles pour les boutons */
+.btn, /* cible les éléments avec la classe .btn */
+.btn.white-btn { /* cible les éléments avec la classe .btn et .white-btn */
+    /* Styles communs aux boutons */
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn {
+    /* Styles spécifiques aux boutons principaux */
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #000;
+}
+
+.btn.white-btn {
+    /* Styles spécifiques aux boutons blancs */
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #000;
+}
+
+/* Styles pour les liens */
+.btn {
+    /* Styles communs aux liens (utilisés comme boutons) */
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.nav-button .btn {
+    width: 130px;
+    height: 40px; /* Ajout de la hauteur pour aligner verticalement le texte */
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s ease;
+    display: inline-block; /* Assurez-vous que le bouton est un bloc en ligne */
+    vertical-align: middle; /* Alignement vertical */
+    line-height: 40px; /* Hauteur de ligne pour centrer le texte verticalement */
+    text-align: center; /* Alignement horizontal */
+}
+
+.btn.white-btn {
+    /* Styles spécifiques aux liens (utilisés comme boutons) */
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #000;
+}
+</style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <!-- Barre de navigation -->
+           
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+            <div class="nav-button">
+                <a class="btn" id="loginBtn" href="{{ path('app_login') }}" onclick="login()">Login</a>
+                <a class="btn white-btn" id="registerBtn" onclick="register()">Register</a>
+            </div>
+        </nav>
+        <div class="form-box">
+            <div class="login-container" id="login" src="{{path('app_login')}}">
+                <!-- Formulaire de connexion -->
+                <!-- Vous pouvez ajouter votre formulaire de connexion ici si nécessaire -->
+            </div>
+            <div class="register-container" id="register">
+                <!-- Formulaire d'inscription -->
+                <div class="top">
+                    <span>Have an account? <a href="#" onclick="login()">Login</a></span>
+                    <header>Sign Up</header>
+                </div>
+                <form method="post" action="{{ path('app_register') }}" class="tab-wizard2 wizard-circle wizard">
+                    {{ form_start(registrationForm) }}
+
+                    {% for flash_error in app.flashes('verify_email_error') %}
+                        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+                    {% endfor %}
+
+                    <div class="two-forms">
+                        <div class="input-box">
+                            {{ form_label(registrationForm.nom, 'Firstname') }}
+                            {{ form_widget(registrationForm.nom, { 'attr': {'class': 'input-field', 'placeholder': 'Firstname'} }) }}
+                            <i class="bx bx-user"></i>
+                        </div>
+                        <div class="input-box">
+                            {{ form_label(registrationForm.prenom, 'Lastname') }}
+                            {{ form_widget(registrationForm.prenom, { 'attr': {'class': 'input-field', 'placeholder': 'Lastname'} }) }}
+                            <i class="bx bx-user"></i>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        {{ form_label(registrationForm.email, 'Email Address') }}
+                        {{ form_widget(registrationForm.email, { 'attr': {'class': 'input-field', 'placeholder': 'Email'} }) }}
+                        <i class="bx bx-envelope"></i>
+                    </div>
+                    <div class="input-box">
+                        {{ form_label(registrationForm.password, 'Password') }}
+                        {{ form_widget(registrationForm.password, { 'attr': {'class': 'input-field', 'placeholder': 'Password'} }) }}
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                    <div class="input-box">
+                        <button type="submit" class="submit">Register</button>
+                    </div>
+                    <div class="two-col">
+                        <div class="one">
+                            <input type="checkbox" id="register-check">
+                            <label for="register-check"> Remember Me</label>
+                        </div>
+                        <div class="two">
+                            <label><a href="#">Terms & conditions</a></label>
+                        </div>
+                    </div>
+
+                    {{ form_end(registrationForm) }}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function myMenuFunction() {
+            var menu = document.querySelector(".nav-menu");
+            if (menu.classList.contains("responsive")) {
+                menu.classList.remove("responsive");
+            } else {
+                menu.classList.add("responsive");
+            }
+        }
+
+        var loginBtn = document.getElementById("loginBtn");
+        var registerBtn = document.getElementById("registerBtn");
+        var loginContainer = document.getElementById("login");
+        var registerContainer = document.getElementById("register");
+
+        function login() {
+            loginContainer.style.left = "4px";
+            registerContainer.style.right = "-520px";
+            loginBtn.classList.add("white-btn");
+            registerBtn.classList.remove("white-btn");
+            loginContainer.style.opacity = 1;
+            registerContainer.style.opacity = 0;
+        }
+
+        function register() {
+            loginContainer.style.left = "-510px";
+            registerContainer.style.right = "5px";
+            loginBtn.classList.remove("white-btn");
+            registerBtn.classList.add("white-btn");
+            loginContainer.style.opacity = 0;
+            registerContainer.style.opacity = 1;
+        }
+    </script>
+</body>
+</html>
