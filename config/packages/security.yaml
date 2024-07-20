@@ -27,13 +27,13 @@ security:
 
             logout:
                 path: app_logout
+                target: app_login
 
     access_control:
-        # Vos règles d'accès ici
+        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/$, roles: ROLE_ADMIN }
+        - { path: ^/app_front, roles: ROLE_USER }
 
-
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
     security:

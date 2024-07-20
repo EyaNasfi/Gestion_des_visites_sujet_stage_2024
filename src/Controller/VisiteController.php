@@ -33,6 +33,33 @@ class VisiteController extends AbstractController
             'controller_name' => 'VisiteController',
         ]);
     }
+
+
+    #[Route('/charts', name: 'app_charts')]
+    public function charts(EtatBadgeRepository $rep,VisiteurRepository $vi,TypeVisiteurRepository $tv,DepartementRepository $dr,PersonneVisiteRepository $pvr,VisiteRepository $vr,BadgeRepository $br,Security $security): Response
+    {
+        $user = $security->getUser();
+        $Visiteurs = $vi->createQueryBuilder('q')
+        ->select('COUNT(q.idv)')
+        ->getQuery()
+        ->getSingleScalarResult(); 
+    $Visites = $vr->createQueryBuilder('q')
+        ->select('COUNT(q.idvisite)')
+        ->getQuery()
+        ->getSingleScalarResult(); 
+    $departements = $dr->createQueryBuilder('q')
+        ->select('COUNT(q.iddep)')
+        ->getQuery()
+        ->getSingleScalarResult(); 
+    $badges = $br->createQueryBuilder('q')
+        ->select('COUNT(q.idba)')
+        ->getQuery()
+        ->getSingleScalarResult(); 
+        return $this->render('/charts.html.twig', [
+            'controller_name' => 'VisiteController',                'visiteurs' => $Visiteurs,'visites'=>$Visites,'departements'=>$departements,'badges'=>$badges,'user'=>$user
+
+        ]);
+    }
     #[Route('/visite/create', name: 'app_visite_create')]
     public function create(Request $req,EntityManagerInterface $em,EtatBadgeRepository $rep,VisiteurRepository $vi,TypeVisiteurRepository $tv,DepartementRepository $dr,PersonneVisiteRepository $pvr,VisiteRepository $vr,BadgeRepository $br,Security $security ): Response
     {
@@ -127,5 +154,102 @@ class VisiteController extends AbstractController
         $em->remove($r);
         $em->flush();
         return $this->redirectToRoute('app_show_visite');
+    }
+    #[Route('/visite/editer/{id}', name: 'app_visite_editer')]
+    public function editer(Request $req,VisiteurRepository $vi,TypeVisiteurRepository $tv,DepartementRepository $dr,PersonneVisiteRepository $pvr,VisiteRepository $vr,BadgeRepository $br,EntityManagerInterface $em,VisiteRepository $rep,$id ): Response
+    {
+        $r=$rep->findAll();
+        $p = $rep->find($id); //n3ml instance 
+            $form = $this->createForm(VisiteType::class, $p); //n3ml formulaire  b reclamationtyoe eli fiha champs ta3 entity
+            $form->handleRequest($req); //traitement de requete  , 
+            $Visiteurs = $vi->createQueryBuilder('q')
+            ->select('COUNT(q.idv)')
+            ->getQuery()
+            ->getSingleScalarResult(); 
+        $Visites = $vr->createQueryBuilder('q')
+            ->select('COUNT(q.idvisite)')
+            ->getQuery()
+            ->getSingleScalarResult(); 
+        $departements = $dr->createQueryBuilder('q')
+            ->select('COUNT(q.iddep)')
+            ->getQuery()
+            ->getSingleScalarResult(); 
+        $badges = $br->createQueryBuilder('q')
+            ->select('COUNT(q.idba)')
+            ->getQuery()
+            ->getSingleScalarResult(); 
+            if ($form->isSubmitted() && $form->isValid()) { //kn form valide 
+                $em = $this->getDoctrine()->getManager(); //nakhedh entity manager eli ta3ml persist l'entite f bd
+                $em->flush(); //na3ml refresh f bd
+        
+                return $this->redirectToRoute('app_visite_createe');
+            }
+            return $this->render('theme/visite.html.twig', [
+                'form' => $form->createView()    ,'viss'=>$r ,                'visiteurs' => $Visiteurs,'visites'=>$Visites,'departements'=>$departements,'badges'=>$badges
+
+        ]);
+    }
+    #[Route('/visite/deletee/{id}', name: 'app_visite_deletee')]
+    public function deletee(VisiteRepository $etatb,$id ): Response
+    {
+        $r = $etatb->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($r);
+        $em->flush();
+        return $this->redirectToRoute('app_visitee_create');
+    }
+    #[Route('/visite/createeee', name: 'app_visitee_create')]
+    public function creat(Request $req,EntityManagerInterface $em,EtatBadgeRepository $rep,VisiteurRepository $vi,TypeVisiteurRepository $tv,DepartementRepository $dr,PersonneVisiteRepository $pvr,VisiteRepository $vr,BadgeRepository $br,Security $security ): Response
+    {
+        $user = $security->getUser();
+        $vis=new Visiteur();
+        $dep = new Visite();
+        $etat = $br->find(2); 
+        $dep->setIdbadge($etat);
+        $form = $this->createForm(VisiteType::class,$dep); 
+        $fo = $this->createForm(VisiteurType::class,$vis);
+        $fo->handleRequest($req);//n3ml formulaire  b reclamationtyoe eli fiha champs ta3 entity
+        $form->handleRequest($req); 
+        $r=$rep->findAll();
+        $ra=$vi->findAll();
+        $rb=$tv->findAll();
+        $rc=$dr->findAll();
+        $rd=$pvr->findAll();
+        $re=$vr->findAll();
+        $Visiteurs = $vi->createQueryBuilder('q')
+        ->select('COUNT(q.idv)')
+        ->getQuery()
+        ->getSingleScalarResult(); 
+    $Visites = $vr->createQueryBuilder('q')
+        ->select('COUNT(q.idvisite)')
+        ->getQuery()
+        ->getSingleScalarResult(); 
+    $departements = $dr->createQueryBuilder('q')
+        ->select('COUNT(q.iddep)')
+        ->getQuery()
+        ->getSingleScalarResult(); 
+    $badges = $br->createQueryBuilder('q')
+        ->select('COUNT(q.idba)')
+        ->getQuery()
+        ->getSingleScalarResult(); 
+        if ($fo->isSubmitted() && $fo->isValid()) { //kn form valide 
+            $em = $this->getDoctrine()->getManager(); //nakhedh entity manager eli ta3ml persist l'entite f bd
+            $em->persist($vis); //T3awedh persist l'entité Reclamation fil entity manager.
+            $em->flush(); //na3ml refresh f bd
+            return $this->redirectToRoute('app_visitee_create');
+
+        } 
+            if ($form->isSubmitted() && $form->isValid()) { //kn form valide 
+                $em = $this->getDoctrine()->getManager(); //nakhedh entity manager eli ta3ml persist l'entite f bd
+                $em->persist($dep); //T3awedh persist l'entité Reclamation fil entity manager.
+                $em->flush(); //na3ml refresh f bd
+                return $this->redirectToRoute('app_visite_create');
+            }
+        
+            return $this->render('theme/visite.html.twig', [
+                'f'=>$fo->createView(),
+                'form' => $form->createView() , 'etats'=>$r ,'typevisis'=>$rb,'visis'=>$ra  ,'departs'=>$rc,'pvs'=>$rd,'viss'=>$re,
+                'visiteurs' => $Visiteurs,'visites'=>$Visites,'departements'=>$departements,'badges'=>$badges,'user'=>$user
+            ]);
     }
 }

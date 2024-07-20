@@ -1,0 +1,938 @@
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<!-- 
+THEME: Constra - Construction Html5 Template
+VERSION: 1.0.0
+AUTHOR: Themefisher
+
+HOMEPAGE: https://themefisher.com/products/constra-construction-template/
+DEMO: https://demo.themefisher.com/constra/
+GITHUB: https://github.com/themefisher/Constra-Bootstrap-Construction-Template
+
+WEBSITE: https://themefisher.com
+TWITTER: https://twitter.com/themefisher
+FACEBOOK: https://www.facebook.com/themefisher
+-->
+
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+================================================== -->
+  <meta charset="utf-8">
+  <title>creation nv type v</title>
+
+  <!-- Mobile Specific Metas
+================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name=author content="Themefisher">
+  <meta name=generator content="Themefisher Constra HTML Template v1.0">
+<script src="https://kit.fontawesome.com/8c7460f58d.js" crossorigin="anonymous"></script>
+          <style>
+                 body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .badges-container {
+            display: flex;
+            gap: 20px; /* Espace entre les badges */
+        }
+        .badge {
+            width: 250px;
+            height: 400px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .badge-header {
+            background-color: #ffcc00;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .badge-header img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+        .badge-content {
+            text-align: center;
+            padding: 20px;
+        }
+        .badge-content h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333333;
+        }
+        .badge-content p {
+            margin: 5px 0;
+            font-size: 18px;
+            color: #666666;
+        }
+        .badge-content .id {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333333;
+        }
+        .badge-footer {
+            text-align: center;
+            padding: 20px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+        }
+        .badge-footer p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #666666;
+        }
+        .qr-code {
+            width: 100px;
+            height: 100px;
+            background-color: #cccccc;
+            margin: 10px auto;
+        }
+        .badge-header img.logo-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+        .badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(to bottom right, #ffcc00 50%, #ff9900 50%);
+            z-index: 1;
+        }
+        .badge::after {
+            content: '';
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: #333333;
+            z-index: 1;
+        }
+        .badge-code {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+        <style>
+    /* Googlefont Poppins CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.sidebar{
+  position: fixed;
+  height: 100%;
+  width: 240px;
+  background: #0A2558;
+  transition: all 0.5s ease;
+}
+.sidebar.active{
+  width: 60px;
+}
+.sidebar .logo-details{
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.sidebar .logo-details i{
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+  min-width: 60px;
+  text-align: center
+}
+.sidebar .logo-details .logo_name{
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+}
+.sidebar .nav-links{
+  margin-top: 10px;
+}
+.sidebar .nav-links li{
+  position: relative;
+  list-style: none;
+  height: 50px;
+}
+.sidebar .nav-links li a{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+.sidebar .nav-links li a.active{
+  background: #081D45;
+}
+.sidebar .nav-links li a:hover{
+  background: #081D45;
+}
+.sidebar .nav-links li i{
+  min-width: 60px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+}
+.sidebar .nav-links li a .links_name{
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.sidebar .nav-links .log_out{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.home-section{
+  position: relative;
+  background: #f5f5f5;
+  min-height: 100vh;
+  width: calc(100% - 240px);
+  left: 240px;
+  transition: all 0.5s ease;
+}
+.sidebar.active ~ .home-section{
+  width: calc(100% - 60px);
+  left: 60px;
+}
+.home-section nav{
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: calc(100% - 240px);
+  left: 240px;
+  z-index: 100;
+  padding: 0 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+}
+.sidebar.active ~ .home-section nav{
+  left: 60px;
+  width: calc(100% - 60px);
+}
+.home-section nav .sidebar-buttonn{
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+nav .sidebar-buttonn i{
+  font-size: 35px;
+  margin-right: 10px;
+}
+.home-section nav .search-box{
+  position: relative;
+  height: 50px;
+  max-width: 550px;
+  width: 100%;
+  margin: 0 20px;
+}
+nav .search-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  background: #F5F6FA;
+  border: 2px solid #EFEEF1;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 15px;
+}
+nav .search-box .bx-search{
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background: #2697FF;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 4px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 22px;
+  transition: all 0.4 ease;
+}
+.home-section nav .profile-details{
+  display: flex;
+  align-items: center;
+  background: #F5F6FA;
+  border: 2px solid #EFEEF1;
+  border-radius: 6px;
+  height: 50px;
+  min-width: 190px;
+  padding: 0 15px 0 2px;
+}
+nav .profile-details img{
+  height: 40px;
+  width: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+nav .profile-details .admin_name{
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 10px;
+  white-space: nowrap;
+}
+nav .profile-details i{
+  font-size: 25px;
+  color: #333;
+}
+.home-section .home-content{
+  position: relative;
+  padding-top: 104px;
+}
+.home-content .overview-boxes{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  margin-bottom: 26px;
+}
+.overview-boxes .box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% / 4 - 15px);
+  background: #fff;
+  padding: 15px 14px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.overview-boxes .box-topic{
+  font-size: 20px;
+  font-weight: 500;
+}
+.home-content .box .number{
+  display: inline-block;
+  font-size: 35px;
+  margin-top: -6px;
+  font-weight: 500;
+}
+.home-content .box .indicator{
+  display: flex;
+  align-items: center;
+}
+.home-content .box .indicator i{
+  height: 20px;
+  width: 20px;
+  background: #8FDACB;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  margin-right: 5px;
+}
+.box .indicator i.down{
+  background: #e87d88;
+}
+.home-content .box .indicator .text{
+  font-size: 12px;
+}
+.home-content .box .cart{
+  display: inline-block;
+  font-size: 32px;
+  height: 50px;
+  width: 50px;
+  background: #cce5ff;
+  line-height: 50px;
+  text-align: center;
+  color: #66b0ff;
+  border-radius: 12px;
+  margin: -15px 0 0 6px;
+}
+.home-content .box .cart.two{
+   color: #2BD47D;
+   background: #C0F2D8;
+ }
+.home-content .box .cart.three{
+   color: #ffc233;
+   background: #ffe8b3;
+ }
+.home-content .box .cart.four{
+   color: #e05260;
+   background: #f7d4d7;
+ }
+.home-content .total-order{
+  font-size: 20px;
+  font-weight: 500;
+}
+.home-content .sales-boxes{
+  display: flex;
+  justify-content: space-between;
+  /* padding: 0 20px; */
+}
+
+/* left box */
+.home-content .sales-boxes .recent-sales{
+  width: 65%;
+  background: #fff;
+  padding: 20px 30px;
+  margin: 0 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.home-content .sales-boxes .sales-details{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sales-boxes .box .title{
+  font-size: 24px;
+  font-weight: 500;
+  /* margin-bottom: 10px; */
+}
+.sales-boxes .sales-details li.topic{
+  font-size: 20px;
+  font-weight: 500;
+}
+.sales-boxes .sales-details li{
+  list-style: none;
+  margin: 8px 0;
+}
+.sales-boxes .sales-details li a{
+  font-size: 18px;
+  color: #333;
+  font-size: 400;
+  text-decoration: none;
+}
+.sales-boxes .box .buttonn{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.sales-boxes .box .buttonn a{
+  color: #fff;
+  background: #0A2558;
+  padding: 4px 12px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.sales-boxes .box .buttonn a:hover{
+  background:  #0d3073;
+}
+
+/* Right box */
+.home-content .sales-boxes .top-sales{
+  width: 35%;
+  background: #fff;
+  padding: 20px 30px;
+  margin: 0 20px 0 0;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.sales-boxes .top-sales li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.sales-boxes .top-sales li a img{
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-right: 10px;
+  background: #333;
+}
+.sales-boxes .top-sales li a{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.sales-boxes .top-sales li .product,
+.price{
+  font-size: 17px;
+  font-weight: 400;
+  color: #333;
+}
+/* Responsive Media Query */
+@media (max-width: 1240px) {
+  .sidebar{
+    width: 60px;
+  }
+  .sidebar.active{
+    width: 220px;
+  }
+  .home-section{
+    width: calc(100% - 60px);
+    left: 60px;
+  }
+  .sidebar.active ~ .home-section{
+    left: 220px;
+    width: calc(100% - 220px);
+    overflow: hidden;
+  }
+  .home-section nav{
+    width: calc(100% - 60px);
+    left: 60px;
+  }
+  .sidebar.active ~ .home-section nav{
+    width: calc(100% - 220px);
+    left: 220px;
+  }
+}
+@media (max-width: 1150px) {
+  .home-content .sales-boxes{
+    flex-direction: column;
+  }
+  .home-content .sales-boxes .box{
+    width: 100%;
+    overflow-x: scroll;
+    margin-bottom: 30px;
+  }
+  .home-content .sales-boxes .top-sales{
+    margin: 0;
+  }
+}
+@media (max-width: 1000px) {
+  .overview-boxes .box{
+    width: calc(100% / 2 - 15px);
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 700px) {
+  nav .sidebar-buttonn .dashboard,
+  nav .profile-details .admin_name,
+  nav .profile-details i{
+    display: none;
+  }
+  .home-section nav .profile-details{
+    height: 50px;
+    min-width: 40px;
+  }
+  .home-content .sales-boxes .sales-details{
+    width: 560px;
+  }
+}
+@media (max-width: 550px) {
+  .overview-boxes .box{
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .sidebar.active ~ .home-section nav .profile-details{
+    display: none;
+  }
+}
+@media (max-width: 400px) {
+  .sidebar{
+    width: 0;
+  }
+  .sidebar.active{
+    width: 60px;
+  }
+  .home-section{
+    width: 100%;
+    left: 0;
+  }
+  .sidebar.active ~ .home-section{
+    left: 60px;
+    width: calc(100% - 60px);
+  }
+  .home-section nav{
+    width: 100%;
+    left: 0;
+  }
+  .sidebar.active ~ .home-section nav{
+    left: 60px;
+    width: calc(100% - 60px);
+  }
+}
+buttonnn {
+ border: 2px solid #24b4fb;
+ background-color: #24b4fb;
+ border-radius: 0.9em;
+ padding: 0.8em 1.2em 0.8em 1em;
+ transition: all ease-in-out 0.2s;
+ font-size: 16px;
+}
+
+buttonnn .spanbut {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: #fff;
+ font-weight: 600;
+}
+
+buttonnn:hover {
+ background-color: #0071e2;
+}
+button {
+  --primary-color: #fcb71d;
+  --secondary-color: #fff;
+  --hover-color: #111;
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  color: var(--secondary-color);
+  padding: 1em 1.8em;
+  background: var(--primary-color);
+  display: flex;
+  transition: 0.2s background;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: bold;
+}
+
+button .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button .arrow {
+  margin-top: 1px;
+  width: var(--arrow-width);
+  background: var(--primary-color);
+  height: var(--arrow-stroke);
+  position: relative;
+  transition: 0.2s;
+}
+
+button .arrow::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: solid var(--secondary-color);
+  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+
+button:hover {
+  background-color: var(--hover-color);
+}
+
+button:hover .arrow {
+  background: var(--secondary-color);
+}
+
+button:hover .arrow:before {
+  right: 0;
+}
+    </style>
+  <!-- Favicon
+================================================== -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- CSS
+================================================== -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{{asset('plugins/bootstrap/bootstrap.min.css')}}">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="{{asset('plugins/fontawesome/css/all.min.css')}}">
+  <!-- Animation -->
+  <link rel="stylesheet" href="{{asset('plugins/animate-css/animate.css')}}">
+  <!-- slick Carousel -->
+  <link rel="stylesheet" href="{{asset('plugins/slick/slick.css')}}">
+  <link rel="stylesheet" href="{{asset('plugins/slick/slick-theme.css')}}">
+  <!-- Colorbox -->
+  <link rel="stylesheet" href="{{asset('plugins/colorbox/colorbox.css')}}">
+  <!-- Template styles-->
+  <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
+</head>
+<body>
+    <div class="body-inner">
+
+    <div id="top-bar" class="top-bar">
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8">
+              <ul class="top-info text-center text-md-left">
+                  <li><i class="fas fa-map-marker-alt"></i> <p class="info-text">Gabes, Tunisie</p>
+                  </li>
+              </ul>
+            </div>
+              <!--/ Top info end -->
+<div class="col-lg-4 col-md-4 top-social text-center text-md-right">
+                <ul class="list-unstyled">
+                    <li>
+                      <a title="Facebook" href="https://www.facebook.com/eyaanasfi/">
+                          <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
+                      </a>
+                      <a title="Instagram" href="https://www.instagram.com/eyaa_nasfi/">
+                          <span class="social-icon"><i class="fab fa-instagram"></i></span>
+                      </a>
+                      <a title="Linkdin" href="https://github.com/EyaNasfi">
+                          <span class="social-icon"><i class="fab fa-github"></i></span>
+                      </a>
+                    </li>
+                </ul>
+              </div>
+              <!--/ Top social end -->
+          </div>
+          <!--/ Content row end -->
+        </div>
+        <!--/ Container end -->
+    </div>
+    <!--/ Topbar end -->
+<!-- Header start -->
+<header id="header" class="header-one">
+
+  <div class="site-navigation">
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div id="navbar-collapse" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav mr-auto">
+                      <li class="nav-item">
+                          <a href="{{path('app_front')}}" class="nav-link dropdown-toggle">Accueil <i class="fa fa-angle-down"></i></a>
+                      </li>
+
+                      <li class="nav-item dropdown ">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Visiteurs <i class="fa fa-angle-down"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{path('app_typv_create')}}">Type Visiteur</a></li>
+                            <li><a href="{{path('app_v_create')}}"> Visiteur</a></li>
+                          </ul>
+                      </li>
+              
+                      <li class="nav-item dropdown">
+                          <a href="{{path('app_visitee_create')}}" class="nav-link dropdown-toggle" >Visites<i class="fa fa-angle-down"></i></a>
+                      </li>
+              
+                      <li class="nav-item dropdown active">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Badges<i class="fa fa-angle-down"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{path('app_eb_create')}}">Etat de badge</a></li>
+                            <li><a href="{{path('app_badge_createe')}}">Badge</a></li>
+                          </ul>
+                      </li>
+            
+                          </ul>
+                      </li>
+                  </div>
+        </div>
+        </div>
+                    </ul>
+                </div>
+              </nav>
+          </div>
+          <!--/ Col end -->
+    
+        <!--/ Row end -->
+          <div class="container h-100">
+          <div class="row align-items-center h-100">
+  <div class="badges-container">
+        <div class="badge">
+            <div class="badge-header">
+                <img src="{{ asset('images/scgg.png') }}" alt="Logo">
+            </div>
+            <div class="badge-content">
+                <h1>Visiteur</h1>
+                <p>Pass temporaire</p>
+            </div>
+            <div class="badge-footer">
+                <div class="badge-code">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=code{{ b.code }}datecreation{{ b.datecreation|date('Y-m-d') }}dateexpiration :{{ b.datexpiration|date('Y-m-d') }}&size=100x100" alt="QR code">
+                    <div style="margin-top:2px;font-size: 16px">
+                        <br>
+                        Veuillez rendre votre <br> laissez-passer en sortant.</br>
+                        <br>
+                    </div>
+                    <span style="font-size: 14px; font-weight: bold;">Code de Badge: {{ b.code }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="badge">
+          
+            <div class="badge-content">
+                <h1>Si vous le trouvez, <h1>veuillez le </h1> <h1> retourner à :</h1></h1>
+            </div>
+            <div class="badge-footer">
+                <div class="badge-code">
+                                <img src="{{ asset('/scgg.png') }}" style="height: 70px; width: 120px"; alt="Logo">
+
+
+                    <div style="margin-top:2px;font-size: 10px">
+                    <br>Si vous le trouvez, <br>veuillez le </br> <br> retourner à :</br></br>
+              <p><i class="fa-solid fa-globe"></i>Site :  <a href="https://cimentsdegabes.com.tn/">cimentsdegabes.com.tn</a></p>
+                <p><i class="fa-solid fa-phone"></i>
+telephone : <p>(+216) 75 350 063</p></p>
+                    </div>
+                    <p><i class="fa-solid fa-location-dot"></i>adresse : Rt el Hamma KM 10 </p><p> BP 101, 6000 Gabès.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+ <a href="{{ path('app_badge_pdf', { 'idba': b.idba}) }}" target="_blank">
+        <button><i class="fas fa-file-pdf"></i></button>
+    </a>
+               <script>
+        const form = new FormData();
+        form.append('image', '');
+        form.append('metadata', '{"data":"https://linqr.app","image":{"modules":true},"style":{"module":{"color":"black","shape":"default"},"inner_eye":{"shape":"default"},"outer_eye":{"shape":"default"},"background":{}},"size":{"width":200,"quiet_zone":4},"output":{"filename":"qrcode","format":"svg"}}');
+
+        const settings = {
+            async: true,
+            crossDomain: true,
+            url: 'https://qrcode3.p.rapidapi.com/qrcode/text',
+            method: 'POST',
+            headers: {
+                'X-RapidAPI-Key': '7044b46aaamsh864a4d380fc6a56p1554f4jsncb63ab7712dc',
+                'X-RapidAPI-Host': 'qrcode3.p.rapidapi.com'
+            },
+            processData: false,
+            contentType: false,
+            mimeType: 'multipart/form-data',
+            data: form
+        };
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+    </script>
+
+
+
+  <footer id="footer" class="footer bg-overlay">
+    <div class="footer-main">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-lg-4 col-md-6 footer-widget footer-about">
+            <h3 class="widget-title">About Us</h3>
+            <img loading="lazy" width="100px" class="footer-logo" src="{{asset('scgg.png')}}">
+
+            <div class="footer-social">
+              <ul>
+                <li><a href="https://www.facebook.com/eyaanasfi/" aria-label="Facebook"><i
+                      class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.instagram.com/eyaa_nasfi/" aria-label="Instagram"><i
+                      class="fab fa-instagram"></i></a></li>
+                <li><a href="https://github.com/EyaNasfi" aria-label="Github"><i class="fab fa-github"></i></a></li>
+              </ul>
+            </div><!-- Footer social end -->
+          </div><!-- Col end -->
+
+          <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
+            <h3 class="widget-title">Heures de travail</h3>
+            <div class="working-hours">
+               Nous travaillons 7 jours sur 7, tous les jours hors jours fériés.
+               Contactez-nous en cas d'urgence, avec notre Hotline et notre formulaire de contact.
+
+              <br><br> Lundi - Jeudi: <span class="text-right">7:30 - 14:30 </span>
+              <br> Vendredi: <span class="text-right">7:30 - 13:00</span>
+            </div>
+          </div><!-- Col end -->
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
+            <h3 class="widget-title">Services</h3>
+
+          </div><!-- Col end -->
+        </div><!-- Row end -->
+      </div><!-- Container end -->
+    </div><!-- Footer main end -->
+
+    <div class="copyright">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="copyright-info">
+              <span>Copyright &copy; <script>
+                  document.write(new Date().getFullYear())
+                </script>, Designed &amp; Developed by <a href="https://github.com/EyaNasfi">Nasfi Eya</a></span>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="footer-menu text-center text-md-right">
+              <ul class="list-unstyled">
+                <li><a href="about.html">A propos</a></li>
+
+              </ul>
+            </div>
+          </div>
+
+        <div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top position-fixed">
+          <button class="btn btn-primary" title="Back to Top">
+            <i class="fa fa-angle-double-up"></i>
+          </button>
+        
+      </div><!-- Container end -->
+    </div><!-- Copyright end -->
+  </footer><!-- Footer end -->
+
+
+  <!-- Javascript Files
+  ================================================== -->
+
+  <!-- initialize jQuery Library -->
+  <script src="{{asset('plugins/jQuery/jquery.min.js')}}"></script>
+  <!-- Bootstrap jQuery -->
+  <script src="{{asset('plugins/bootstrap/bootstrap.min.js')}}" defer></script>
+  <!-- Slick Carousel -->
+  <script src="{{asset('plugins/slick/slick.min.js')}}"></script>
+  <script src="{{asset('plugins/slick/slick-animation.min.js')}}"></script>
+  <!-- Color box -->
+  <script src="{{asset('plugins/colorbox/jquery.colorbox.js')}}"></script>
+  <!-- shuffle -->
+  <script src="{{asset('plugins/shuffle/shuffle.min.js')}}" defer></script>
+
+
+  <!-- Google Map API Key-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+  <!-- Google Map Plugin-->
+  <script src="{{asset('plugins/google-map/map.js')}}" defer></script>
+
+  <!-- Template custom -->
+  <script src="{{asset('js/script.js')}}"></script>
+
+  </div><!-- Body inner end -->
+  </body>
+
+  </html>

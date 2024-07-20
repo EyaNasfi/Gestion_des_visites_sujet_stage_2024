@@ -21,7 +21,7 @@ class TvType extends AbstractType
            ]     ] ,
                    )
            
-        ->add('submit',SubmitType::class, [
+        ->add('Enregistrer',SubmitType::class, [
             'attr' => [
                 'class' => 'form-control btn btn-primary',
             ],

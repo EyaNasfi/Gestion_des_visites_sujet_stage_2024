@@ -1,76 +1,124 @@
-# deskapp
+# Constra - Free bootstrap construction template
 
-DeskApp Admin is a free to use Bootstrap 4 admin template. This template uses the default Bootstrap 4 styles along with a variety of powerful jQuery plugins and tools to create a powerful framework for creating admin panels or back-end dashboards.
+Constra is a theme for professional builders, construction or even industrial production companies with a focus on presenting the team, current and recent projects. Responsive development of the layouts makes the theme look good on any modern device.
 
-Theme uses several libraries for charts, calendar, text forms, date range, upload area, form autocomplete, range slider, progress bars, notifications and much more.
+<!-- demo -->
+## Example Site
 
-We would love to see how you use this awesome admin template. You can notify us about your site. Once the list will grown long enough we will write a post similar to this to showcase the best examples.
+| [![](screenshots/homepage-1.png)](https://demo.themefisher.com/constra/) | [![](screenshots/homepage-2.png)](https://demo.themefisher.com/constra/index-2.html) | [![](screenshots/about.png)](https://demo.themefisher.com/constra/about.html) |
+|:---:|:---:|:---:|
+| **Homepage 1**  | **Homepage 2**  | **About**  |
+| [![](screenshots/service.png)](https://demo.themefisher.com/constra/services.html) | [![](screenshots/project.png)](https://demo.themefisher.com/constra/projects.html) | [![](screenshots/news.png)](https://demo.themefisher.com/constra/news-right-sidebar.html) |
+| **Service** | **Project** | **News** |
 
-# Quick start
-Several quick start options are available:
-* Clone the repo: git clone https://github.com/dropways/deskapp.git
-* Install with npm: 
-  `npm install deskapp`
+👉🏻[View Live Preview](https://demo.themefisher.com/constra/)
 
-## Built With
-* Bootstrap 4
-* Bootstrap Select
-* Bootstrap Tagsinput
-* Bootstrap Touchspin
-* Bootstrap-wysihtml5
-* Moment Js
-* Clipboard Js
-* Air Datepicker
-* Cropperjs
-* Datatables
-* Dropzone
-* Fancybox 3
-* Fullcalendar
-* Highcharts
-* Ion-rangeslider
-* jQuery Ascolorpicker
-* jQuery Asgradient
-* jQuery Knob
-* jQuery Steps
-* Jvectormap
-* Mcustom scrollbar
-* Plyr
-* Select2
-* Slick Slider
-* Sweetalert2
-* Switchery
-* Timedropper
+<!-- resources -->
+## Pages
 
-## Sample Screens
-<img src="https://user-images.githubusercontent.com/38377336/86491687-03ca9a00-bd89-11ea-8a3a-11dcfcddd254.png" alt="Template 1">
+* **Homepage 1**
+* **Homepage 2**
+* **About**
+* **Services**
+* **Service Details**
+* **Projects**
+* **Projects Details**
+* **Pricing**
+* **Team**
+* **Testimonials**
+* **News Left Sidebar**
+* **News Right Sidebar**
+* **News Details**
+* **FAQ**
+* **404**
+* **Typography**
+* **Contact**
 
-## Demo link
-A fully functional demo is available at
+<!-- download -->
+## Download And installation
 
-- demo 1 https://dropways.github.io/deskapp/
-- demo 2 https://deskapp-dashboard.herokuapp.com/
+Download this template from [Github](https://github.com/themefisher/constra/archive/main.zip)
 
-## Bugs Reports
-Have a bug or a feature request? Please open a new issue.
+<!-- installation -->
+### Basic Usages
 
-# MIT License
+After downloading the template, you can simply edit the HTML and CSS files from the `theme` folder. To preview the changes you make to the code, you can open the index.html file in your web browser.
 
-Copyright (c) 2018 DeskApp
+### Advanced Usage
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+For advanced usage, you have some prerequisites to install. Then you can run it on your localhost. You can view the package.json file to see which scripts are included.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+#### Install prerequisites (once for a machine)
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+* **Node Installation:** [Install node js](https://nodejs.org/en/download/)
+* **Gulp Installation:** Install gulp globally from your terminal
+
+```
+npm install --global gulp-cli
+```
+
+Or visit the original [Gulp docs](https://gulpjs.com/docs/en/getting-started/quick-start)
+
+#### Local setup
+
+After successfully installing those dependencies, open this theme with any IDE [[VS Code](https://code.visualstudio.com/) recommended], and then open the internal terminal of IDM [vs code shortcut <code>ctrl/cmd+\`</code>]
+
+* Install dependencies
+
+```
+npm install
+```
+
+* Run locally
+
+```
+npm run dev
+```
+
+After that, it will open up a preview of the template in your default browser, watch for changes to source files, and live reload the browser when changes are saved.
+
+#### Production Build
+
+After finishing all the customization, you can create a production build by running this command.
+
+```
+npm run build
+```
+
+Now you get a `theme` folder that has all the changes you have made. you can use this folder as your main theme.
+
+👉🏻 [visit documentation](https://docs.themefisher.com/constra/)
+
+<!-- reporting issue -->
+## Reporting Issues
+
+We use GitHub Issues as the official bug tracker for the Constra Template. Please Search [existing issues](https://github.com/themefisher/Constra-Bootstrap-Construction-Template/issues). It’s possible someone has already reported the same problem.
+If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/themefisher/Constra-Bootstrap-Construction-Template/issues).
+
+<!-- support -->
+## Technical Support or Questions (Paid)
+
+If you have questions or need help integrating the product please [contact us](mailto:mehedi@themefisher.com) instead of opening an issue.
+
+<!-- licence -->
+## License
+
+Copyright (c) 2016 - Present, Designed & Developed by [Themefisher](https://themefisher.com)
+
+**Code License:** Released under the [MIT](https://github.com/themefisher/constra/blob/main/LICENSE) license.
+
+**Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
+
+<!-- resources -->
+## Resources
+
+Some third-party plugins that we used to build this template. Please check their licenses.
+
+* **Bootstrap v4.5**: <https://getbootstrap.com/docs/4.5/getting-started/introduction/>
+* **Jquery v3.5.1**: <https://jquery.com/download/>
+* **Google Fonts**: <http://fonts.google.com/>
+* **Font Awesome Free**: <https://fontawesome.com/>
+* **Animate CSS**: <https://animate.style/>
+* **Colorbox**: <https://www.jacklmoore.com/colorbox/>
+* **Slick**: <https://kenwheeler.github.io/slick/>
+* **Shuffle**: <https://vestride.github.io/Shuffle/>

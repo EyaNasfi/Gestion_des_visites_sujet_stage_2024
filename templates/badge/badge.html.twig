@@ -618,7 +618,7 @@ button:hover .arrow:before {
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
 						<a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
-						<a class="dropdown-item" href="{{path('app_logout')}}"><i class="dw dw-logout"></i> Log Out</a>
+						<a class="dropdown-item" href="{{path('app_login')}}"><i class="dw dw-logout"></i> Log Out</a>
 					</div>
 				</div>
 			</div>
@@ -701,6 +701,44 @@ button:hover .arrow:before {
 		</div>
 	</div>
 
+    <!-- Script pour générer le PDF -->
+    <script>
+        document.getElementById('generatePdfButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Empêche le comportement par défaut du bouton
+
+            const data = JSON.stringify({
+                source: {
+                    html: '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><div class="badges-container"><div class="badge"><div class="badge-header"><img src="{{ asset('images/scgg.png') }}" alt="Logo"></div><div class="badge-content"><h1>Visiteur</h1><p>Pass temporaire</p></div><div class="badge-footer"><div class="badge-code"><img src="https://api.qrserver.com/v1/create-qr-code/?data=code{{ b.code }}datecreation{{ b.datecreation|date('Y-m-d') }}dateexpiration :{{ b.datexpiration|date('Y-m-d') }}&size=100x100" alt="QR code"><div style="margin-top:2px;font-size: 16px"><br>Veuillez rendre votre <br> laissez-passer en sortant.</br></div><span style="font-size: 14px; font-weight: bold;">Code de Badge: {{ b.code }}</span></div></div></div><div class="badge"><div class="badge-header"><img src="{{ asset('/scgg.png') }}" alt="Logo" class="logo-image"></div><div class="badge-content"><h1>Si vous le trouvez, <h1>veuillez le </h1> <h1> retourner à :</h1></h1></div><div class="badge-footer"><div class="badge-code"><img src="{{ asset('/scgg.png') }}" alt="Logo"><div style="margin-top:2px;font-size: 10px"><br>Si vous le trouvez, <br>veuillez le </br> <br> retourner à :</br></br><p><i class="fa-solid fa-globe"></i>Site :  <a href="https://cimentsdegabes.com.tn/">cimentsdegabes.com.tn</a></p><p><i class="fa-solid fa-phone"></i>telephone : <p>(+216) 75 350 063</p></p></div><p><i class="fa-solid fa-location-dot"></i>adresse : Rt el Hamma KM 10 </p><p> BP 101, 6000 Gabès.</p></div></div></div></html>'
+                },
+                pdf: {
+                    format: 'A4',
+                    scale: 1,
+                    printBackground: true
+                },
+                wait: {
+                    for: 'navigation',
+                    waitUntil: 'load',
+                    timeout: 2500
+                }
+            });
+
+            const xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener('readystatechange', function () {
+                if (this.readyState === this.DONE) {
+                    console.log(this.responseText);
+                }
+            });
+
+            xhr.open('POST', 'https://yakpdf.p.rapidapi.com/pdf');
+            xhr.setRequestHeader('x-rapidapi-key', '7044b46aaamsh864a4d380fc6a56p1554f4jsncb63ab7712dc');
+            xhr.setRequestHeader('x-rapidapi-host', 'yakpdf.p.rapidapi.com');
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.send(data);
+        });
+    </script>
 	<div class="left-side-bar">
 		<div class="brand-logo">
 			<a href="index.html">
@@ -758,13 +796,13 @@ button:hover .arrow:before {
 						</a>
 					</li>					
 					<li class="dropdown">
-						<a href="javascript:;" class="dropdown-toggle">
+						<a href="{{path('app_charts')}}" class="dropdown-toggle">
 							<span class="micon dw dw-analytics-21"></span><span class="mtext"><i class="fa-solid fa-square-poll-vertical"></i>Statistiques</span>
 						</a>
 					</li>
-					<li>
-						<a href="chat.html" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-chat3"></span><span class="mtext"><i class="fa-solid fa-comments"></i>Messages</span>
+										<li class="dropdown">
+						<a href="{{path('app_user_add')}}" class="dropdown-toggle">
+							<span class="micon dw dw-analytics-21"></span><span class="mtext"><i class="fa-solid fa-users"></i>Ajouter nv Admin</span>
 						</a>
 					</li>
 					<li>

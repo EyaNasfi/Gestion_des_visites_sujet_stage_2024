@@ -28,10 +28,7 @@ class EtatBadge
      */
     private $libelle;
 
-    public function __tostring()
-    {
-        return $this->libelle;
-    }
+
 
     /**
      * Get the value of idetat
@@ -79,5 +76,9 @@ class EtatBadge
         $this->libelle = $libelle;
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->libelle;
     }
 }

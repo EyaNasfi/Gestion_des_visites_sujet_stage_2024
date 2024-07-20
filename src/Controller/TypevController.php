@@ -21,6 +21,44 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class TypevController extends AbstractController
 {
+
+    #[Route('/typv', name: 'app_typv_create')]
+    public function createtv(Request $req,EntityManagerInterface $em,TypeVisiteurRepository $rep,VisiteurRepository $vi,TypeVisiteurRepository $tv,DepartementRepository $dr,PersonneVisiteRepository $pvr,VisiteRepository $vr,BadgeRepository $br,Security $security ): Response
+    {
+        $user = $security->getUser();
+        $typev = new TypeVisiteur();
+        $form = $this->createForm(TvType::class,$typev); //n3ml formulaire  b reclamationtyoe eli fiha champs ta3 entity
+        $form->handleRequest($req); //traitement de requete  , 
+        $r=$rep->findAll();
+        $Visiteurs = $vi->createQueryBuilder('q')
+        ->select('COUNT(q.idv)')
+        ->getQuery()
+        ->getSingleScalarResult(); 
+    $Visites = $vr->createQueryBuilder('q')
+        ->select('COUNT(q.idvisite)')
+        ->getQuery()
+        ->getSingleScalarResult(); 
+    $departements = $dr->createQueryBuilder('q')
+        ->select('COUNT(q.iddep)')
+        ->getQuery()
+        ->getSingleScalarResult(); 
+    $badges = $br->createQueryBuilder('q')
+        ->select('COUNT(q.idba)')
+        ->getQuery()
+        ->getSingleScalarResult();  
+            if ($form->isSubmitted() && $form->isValid()) { //kn form valide 
+                $em = $this->getDoctrine()->getManager(); //nakhedh entity manager eli ta3ml persist l'entite f bd
+                $em->persist($typev); //T3awedh persist l'entité Reclamation fil entity manager.
+                $em->flush(); //na3ml refresh f bd
+                return $this->redirectToRoute('app_typv_create');
+            }
+        
+            return $this->render('theme/typv.html.twig', [
+                'form' => $form->createView() , 'typevisis'=>$r,
+                'visiteurs' => $Visiteurs,'visites'=>$Visites,'departements'=>$departements,'badges'=>$badges
+                ,'user'=>$user
+            ]);
+    }
     #[Route('/typev', name: 'app_home')]
     public function index(VisiteurRepository $vi,TypeVisiteurRepository $tv,DepartementRepository $dr,PersonneVisiteRepository $pvr,VisiteRepository $vr,BadgeRepository $br,Security $security): Response
     {
@@ -121,7 +159,50 @@ $badges = $br->createQueryBuilder('q')
         $em->remove($r);
         $em->flush();
         return $this->redirectToRoute('app_affichertyp');
-    }    
+    }  
+    #[Route('/typev/supprime/{id}', name: 'app_supprimertypv')]
+    public function supprime($id,TypeVisiteurRepository $re ){
+        $r = $re->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($r);
+        $em->flush();
+        return $this->redirectToRoute('app_typv_create');
+    }   
+
+
+
+    #[Route('/typev/modifie/{id}', name: 'app_modifiertypv')]
+    public function modifie(Request $req,$id, TypeVisiteurRepository $rep,DepartementRepository $dr,VisiteurRepository $rr,PersonneVisiteRepository $pv,VisiteRepository $vr,Security $security,BadgeRepository $br,VisiteurRepository $vi,TypeVisiteurRepository $tv){
+        $p = $rep->find($id); //n3ml instance 
+            $form = $this->createForm(TvType::class, $p); //n3ml formulaire  b reclamationtyoe eli fiha champs ta3 entity
+            $form->handleRequest($req); //traitement de requete  , 
+            $Visiteurs = $vi->createQueryBuilder('q')
+            ->select('COUNT(q.idv)')
+            ->getQuery()
+            ->getSingleScalarResult(); 
+        $Visites = $vr->createQueryBuilder('q')
+            ->select('COUNT(q.idvisite)')
+            ->getQuery()
+            ->getSingleScalarResult(); 
+        $departements = $dr->createQueryBuilder('q')
+            ->select('COUNT(q.iddep)')
+            ->getQuery()
+            ->getSingleScalarResult(); 
+        $badges = $br->createQueryBuilder('q')
+            ->select('COUNT(q.idba)')
+            ->getQuery()
+            ->getSingleScalarResult(); 
+            if ($form->isSubmitted() && $form->isValid()) { //kn form valide 
+                $em = $this->getDoctrine()->getManager(); //nakhedh entity manager eli ta3ml persist l'entite f bd
+                $em->flush(); //na3ml refresh f bd
+        
+                return $this->redirectToRoute('app_typv_create');
+            }
+            return $this->render('theme/modiftv.html.twig', [
+                'form' => $form->createView() ,'typevisis' => $rep->findAll()   ,        'visiteurs' => $Visiteurs,'visites'=>$Visites,'departements'=>$departements,'badges'=>$badges
+ 
+        ]);
+    }
     #[Route('/typev/modifier/{id}', name: 'app_modifiertyp')]
     public function modifier(Request $req,$id, TypeVisiteurRepository $rep){
         $p = $rep->find($id); //n3ml instance 

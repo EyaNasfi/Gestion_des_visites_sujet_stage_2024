@@ -27,35 +27,8 @@ class TypeVisiteur
      * @ORM\Column(name="contenu", type="string", length=255, nullable=false)
      */
     private $contenu;
-    public function __tostring()
-    {
-        return $this->getContenu();
-    }
 
 
-    /**
-     * Get the value of contenu
-     *
-     * @return  string
-     */ 
-    public function getContenu()
-    {
-        return $this->contenu;
-    }
-
-    /**
-     * Set the value of contenu
-     *
-     * @param  string  $contenu
-     *
-     * @return  self
-     */ 
-    public function setContenu(string $contenu)
-    {
-        $this->contenu = $contenu;
-
-        return $this;
-    }
 
     /**
      * Get the value of idtype
@@ -77,6 +50,30 @@ class TypeVisiteur
     public function setIdtype(int $idtype)
     {
         $this->idtype = $idtype;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of contenu
+     *
+     * @return  string
+     */ 
+    public function getContenu()
+    {
+        return $this->contenu;
+    }
+
+    /**
+     * Set the value of contenu
+     *
+     * @param  string  $contenu
+     *
+     * @return  self
+     */ 
+    public function setContenu(string $contenu)
+    {
+        $this->contenu = $contenu;
 
         return $this;
     }

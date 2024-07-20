@@ -1,15 +1,13 @@
 <?php
 
 namespace App\Entity;
-use Doctrine\ORM\Mapping as ORM;
 
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Visite
  *
- * @ORM\Table(name="visite", indexes={@ORM\Index(name="idbadge", columns={"idbadge"}), @ORM\Index(name="idv", columns={"idv"}), @ORM\Index(name="idemployeevisit", columns={"idemployeevisit"})})
+ * @ORM\Table(name="visite", indexes={@ORM\Index(name="idemployeevisit", columns={"idemployeevisit"}), @ORM\Index(name="idbadge", columns={"idbadge"}), @ORM\Index(name="idv", columns={"idv"})})
  * @ORM\Entity
  */
 class Visite
@@ -27,7 +25,6 @@ class Visite
      * @var \DateTime
      *
      * @ORM\Column(name="datevisite", type="date", nullable=false)
-     * @Assert\GreaterThanOrEqual("today", message="La date de visite doit être actuelle ou future.")
      */
     private $datevisite;
 
@@ -35,16 +32,13 @@ class Visite
      * @var \DateTime
      *
      * @ORM\Column(name="heure_arrivee", type="datetime", nullable=false)
-     * 
      */
-    
     private $heureArrivee;
 
     /**
-     * @var \DateTime
+     * @var \DateTime|null
      *
-     * @ORM\Column(name="heure_depart", type="datetime", nullable=false)
-     * 
+     * @ORM\Column(name="heure_depart", type="datetime", nullable=true, options={"default"="NULL"})
      */
     private $heureDepart;
 
@@ -52,9 +46,18 @@ class Visite
      * @var string
      *
      * @ORM\Column(name="But", type="text", length=65535, nullable=false)
-     * @Assert\NotBlank(message="le but ne peut pas rester vide")
      */
     private $but;
+
+    /**
+     * @var \Badge
+     *
+     * @ORM\ManyToOne(targetEntity="Badge")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idbadge", referencedColumnName="idba")
+     * })
+     */
+    private $idbadge;
 
     /**
      * @var \Visiteur
@@ -63,8 +66,6 @@ class Visite
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idv", referencedColumnName="idv")
      * })
-     * @Assert\NotBlank( message="Entrez le nom de visiteur svp")
-
      */
     private $idv;
 
@@ -75,48 +76,31 @@ class Visite
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idemployeevisit", referencedColumnName="matricule")
      * })
-     * @Assert\NotBlank( message="Entrez l'employe  svp")
-
      */
     private $idemployeevisit;
 
-    /**
-     * @var \Badge
-     *
-     * @ORM\ManyToOne(targetEntity="Badge")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idbadge", referencedColumnName="idba")
-     * })
-     * @Assert\NotBlank( message="Entrez le code de badge svp")
-
-     */
-    private $idbadge;
-    public function __tostring()
-    {
-        return $this->datevisite->format('Y-m-d') . ' ' . $this->heureArrivee->format('H:i') . ' - ' . $this->heureDepart->format('H:i');
-}
 
 
     /**
-     * Get the value of idbadge
+     * Get the value of idvisite
      *
-     * @return  \Badge
+     * @return  int
      */ 
-    public function getIdbadge():?Badge
+    public function getIdvisite()
     {
-        return $this->idbadge;
+        return $this->idvisite;
     }
 
     /**
-     * Set the value of idbadge
+     * Set the value of idvisite
      *
-     * @param  \Badge  $idbadge
+     * @param  int  $idvisite
      *
      * @return  self
      */ 
-    public function setIdbadge(?Badge $idbadge)
+    public function setIdvisite(int $idvisite)
     {
-        $this->idbadge = $idbadge;
+        $this->idvisite = $idvisite;
 
         return $this;
     }
@@ -126,7 +110,7 @@ class Visite
      *
      * @return  \PersonneVisite
      */ 
-    public function getIdemployeevisit():?PersonneVisite
+    public function getIdemployeevisit()
     {
         return $this->idemployeevisit;
     }
@@ -145,12 +129,15 @@ class Visite
         return $this;
     }
 
+
+
+
     /**
      * Get the value of idv
      *
      * @return  \Visiteur
      */ 
-    public function getIdv():?Visiteur
+    public function getIdv()
     {
         return $this->idv;
     }
@@ -165,6 +152,30 @@ class Visite
     public function setIdv(?Visiteur $idv)
     {
         $this->idv = $idv;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of idbadge
+     *
+     * @return  \Badge
+     */ 
+    public function getIdbadge()
+    {
+        return $this->idbadge;
+    }
+
+    /**
+     * Set the value of idbadge
+     *
+     * @param  \Badge  $idbadge
+     *
+     * @return  self
+     */ 
+    public function setIdbadge(?Badge $idbadge)
+    {
+        $this->idbadge = $idbadge;
 
         return $this;
     }
@@ -194,33 +205,9 @@ class Visite
     }
 
     /**
-     * Get the value of idvisite
-     *
-     * @return  int
-     */ 
-    public function getIdvisite()
-    {
-        return $this->idvisite;
-    }
-
-    /**
-     * Set the value of idvisite
-     *
-     * @param  int  $idvisite
-     *
-     * @return  self
-     */ 
-    public function setIdvisite(int $idvisite)
-    {
-        $this->idvisite = $idvisite;
-
-        return $this;
-    }
-
-    /**
      * Get the value of heureDepart
      *
-     * @return  \DateTime
+     * @return  \DateTime|null
      */ 
     public function getHeureDepart()
     {
@@ -230,13 +217,37 @@ class Visite
     /**
      * Set the value of heureDepart
      *
-     * @param  \DateTime  $heureDepart
+     * @param  \DateTime|null  $heureDepart
      *
      * @return  self
      */ 
-    public function setHeureDepart(\DateTime $heureDepart)
+    public function setHeureDepart($heureDepart)
     {
         $this->heureDepart = $heureDepart;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of datevisite
+     *
+     * @return  \DateTime
+     */ 
+    public function getDatevisite()
+    {
+        return $this->datevisite;
+    }
+
+    /**
+     * Set the value of datevisite
+     *
+     * @param  \DateTime  $datevisite
+     *
+     * @return  self
+     */ 
+    public function setDatevisite(\DateTime $datevisite)
+    {
+        $this->datevisite = $datevisite;
 
         return $this;
     }
@@ -264,41 +275,4 @@ class Visite
 
         return $this;
     }
-
-    /**
-     * Get the value of datevisite
-     *
-     * @return  \DateTime
-     */ 
-    public function getDatevisite()
-    {
-        return $this->datevisite;
-    }
-
-    public function setDatevisite(\DateTime $datevisite): self
-    {
-        $this->datevisite = $datevisite;
-
-        return $this;
-    }
-        /**
-     * @Assert\Callback
-     */
-    public function validateHeureDepartSupHeureArrivee(ExecutionContextInterface $context)
-    {
-        if ($this->heureDepart <= $this->heureArrivee) {
-            $context->buildViolation('L\'heure de départ doit être après l\'heure d\'arrivée.')
-                ->atPath('heureDepart')
-                ->addViolation();
-        }
-    }
-
-    /**
-     * Set the value of datevisite
-     *
-     * @param  \DateTime  $datevisite
-     *
-     * @return  self
-     */ 
-   
 }

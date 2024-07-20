@@ -25,8 +25,21 @@ class LoginController extends AbstractController
     }
 
     #[Route(path: '/logout', name: 'app_logout')]
-    public function logout(): void
+    public function logout(): Response
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+    }
+    #[Route(path: '/redirect', name: 'app_redirect')]
+    public function redirectToTarget(): Response
+    {
+        if ($this->isGranted('ROLE_ADMIN')) {
+            return $this->redirectToRoute('app_home');
+        }
+
+        if ($this->isGranted('ROLE_USER')) {
+            return $this->redirectToRoute('app_front');
+        }
+
+        return $this->redirectToRoute('app_login');
     }
 }

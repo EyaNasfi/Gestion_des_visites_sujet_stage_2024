@@ -1,11 +1,10 @@
 <?php
-
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 /**
  * User
@@ -15,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
-   /**
+    /**
      * @var int
      *
      * @ORM\Column(name="iduser", type="integer", nullable=false)
@@ -37,7 +36,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      *
      * @ORM\Column(name="prenom", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="le prenom est vide")
-
      */
     private $prenom;
 
@@ -55,8 +53,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $password;
 
-    #[ORM\Column(type: 'boolean')]
-    private $isVerified = false;
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="role", type="json", nullable=false)
+     */
+    private $roles = [];
 
 
     public function getId(): ?int
@@ -81,11 +83,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     // Implementing PasswordAuthenticatedUserInterface method
-
     public function getPasswordHash(): ?string
     {
         return $this->password;
     }
+
     public function getEmail(): ?string
     {
         return $this->email;
@@ -94,9 +96,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setEmail(string $email): self
     {
         $this->email = $email;
-
         return $this;
     }
+
     public function getUserIdentifier(): string
     {
         return (string) $this->email;
@@ -107,90 +109,50 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getRoles(): array
     {
+        $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
-     /**
-     * @see UserInterface
-     */
-    public function getSalt(): ?string
+
+    public function setRoles(array $roles): self
     {
-        // not needed when using bcrypt or argon2i
-        return $this->nom && $this->prenom;
+        $this->roles = $roles;
+        return $this;
     }
 
-    /**
-     * Set the value of password
-     *
-     * @param  string  $password
-     *
-     * @return  self
-     */ 
-    public function setPassword(string $password)
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
+        return $this;
+    }
+    public function setPassword(?string $password): static
     {
         $this->password = $password;
 
         return $this;
     }
-
-    public function isVerified(): bool
+    
+    public function getSalt(): ?string
     {
-        return $this->isVerified;
-    }
-
-    public function setIsVerified(bool $isVerified): static
-    {
-        $this->isVerified = $isVerified;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of nom
-     *
-     * @return  string
-     */ 
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-    /**
-     * Set the value of nom
-     *
-     * @param  string  $nom
-     *
-     * @return  self
-     */ 
-    public function setNom(string $nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of prenom
-     *
-     * @return  string
-     */ 
-    public function getPrenom()
-    {
-        return $this->prenom;
-    }
-
-    /**
-     * Set the value of prenom
-     *
-     * @param  string  $prenom
-     *
-     * @return  self
-     */ 
-    public function setPrenom(string $prenom)
-    {
-        $this->prenom = $prenom;
-
-        return $this;
+        // not needed when using bcrypt or argon2i
+        return $this->nom && $this->prenom;
     }
 }

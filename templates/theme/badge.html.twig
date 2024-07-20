@@ -1,0 +1,599 @@
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<!-- 
+THEME: Constra - Construction Html5 Template
+VERSION: 1.0.0
+AUTHOR: Themefisher
+
+HOMEPAGE: https://themefisher.com/products/constra-construction-template/
+DEMO: https://demo.themefisher.com/constra/
+GITHUB: https://github.com/themefisher/Constra-Bootstrap-Construction-Template
+
+WEBSITE: https://themefisher.com
+TWITTER: https://twitter.com/themefisher
+FACEBOOK: https://www.facebook.com/themefisher
+-->
+
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+================================================== -->
+  <meta charset="utf-8">
+  <title>creation nv type v</title>
+
+  <!-- Mobile Specific Metas
+================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name=author content="Themefisher">
+  <meta name=generator content="Themefisher Constra HTML Template v1.0">
+<script src="https://kit.fontawesome.com/8c7460f58d.js" crossorigin="anonymous"></script>
+
+  <!-- Favicon
+================================================== -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- CSS
+================================================== -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{{asset('plugins/bootstrap/bootstrap.min.css')}}">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="{{asset('plugins/fontawesome/css/all.min.css')}}">
+  <!-- Animation -->
+  <link rel="stylesheet" href="{{asset('plugins/animate-css/animate.css')}}">
+  <!-- slick Carousel -->
+  <link rel="stylesheet" href="{{asset('plugins/slick/slick.css')}}">
+  <link rel="stylesheet" href="{{asset('plugins/slick/slick-theme.css')}}">
+  <!-- Colorbox -->
+  <link rel="stylesheet" href="{{asset('plugins/colorbox/colorbox.css')}}">
+  <!-- Template styles-->
+  <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
+</head>
+<body>
+  <div class="body-inner">
+
+    <div id="top-bar" class="top-bar">
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8">
+              <ul class="top-info text-center text-md-left">
+                  <li><i class="fas fa-map-marker-alt"></i> <p class="info-text">Gabes, Tunisie</p>
+                  </li>
+              </ul>
+            </div>
+              <!--/ Top info end -->
+  
+              <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
+                <ul class="list-unstyled">
+                    <li>
+                      <a title="Facebook" href="https://www.facebook.com/eyaanasfi/">
+                          <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
+                      </a>
+                      <a title="Instagram" href="https://www.instagram.com/eyaa_nasfi/">
+                          <span class="social-icon"><i class="fab fa-instagram"></i></span>
+                      </a>
+                      <a title="Linkdin" href="https://github.com/EyaNasfi">
+                          <span class="social-icon"><i class="fab fa-github"></i></span>
+                      </a>
+                    </li>
+                </ul>
+              </div>
+              <!--/ Top social end -->
+          </div>
+          <!--/ Content row end -->
+        </div>
+        <!--/ Container end -->
+    </div>
+    <!--/ Topbar end -->
+<!-- Header start -->
+<header id="header" class="header-one">
+  <div class="bg-white">
+    <div class="container">
+      <div class="logo-area">
+          <div class="row align-items-center">
+<div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
+    <a href="{{path('app_front')}}">
+        <img loading="lazy" src="{{ asset('scgg.png') }}" alt="scg" style="height: 100px; width: 150px;">
+    </a>
+</div>
+
+  
+            <div class="col-lg-9 header-right">
+                <ul class="top-info-box">
+                  <li>
+                    <div class="info-box">
+                      <div class="info-box-content">
+                          <p class="info-box-title">Call me</p>
+                          <p class="info-box-subtitle">(+216) 21-782-711</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="info-box">
+                      <div class="info-box-content">
+                          <p class="info-box-title">Email Me</p>
+                          <p class="info-box-subtitle">eya.nasfi@esprit.tn</p>
+                      </div>
+                    </div>
+                  </li>
+                  
+                                  </ul><!-- Ul end -->
+            </div><!-- header right end -->
+          </div><!-- logo area end -->
+  
+      </div><!-- Row end -->
+    </div><!-- Container end -->
+  </div>
+
+  <div class="site-navigation">
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div id="navbar-collapse" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav mr-auto">
+                      <li class="nav-item dropdown ">
+                          <a href="{{path('app_front')}}" class="nav-link dropdown-toggle" >Accueil <i class="fa fa-angle-down"></i></a>
+                      </li>
+
+                      <li class="nav-item dropdown ">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Visiteurs <i class="fa fa-angle-down"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{path('app_typv_create')}}">Type Visiteur</a></li>
+                            <li><a href="{{path('app_v_create')}}"> Visiteur</a></li>
+                          </ul>
+                      </li>
+              
+                      <li class="nav-item dropdown ">
+                          <a href="{{path('app_visitee_create')}}" class="nav-link dropdown-toggle" >Visites<i class="fa fa-angle-down"></i></a>
+                      </li>
+              
+                      <li class="nav-item dropdown active">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Badges<i class="fa fa-angle-down"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{path('app_eb_create')}}">Etat de badge</a></li>
+                            <li><a href="{{path('app_badge_createe')}}">Badge</a></li>
+                          </ul>
+                      </li>
+              
+                      
+                          </ul>
+                      </li>
+              
+                    </ul>
+                </div>
+              </nav>
+          </div>
+          <!--/ Col end -->
+        </div>
+        <!--/ Row end -->
+
+        <div class="nav-search">
+          <span id="search"><i class="fa fa-search"></i></span>
+        </div><!-- Search end -->
+
+        <div class="search-block" style="display: none;">
+          <label for="search-field" class="w-100 mb-0">
+            <input type="text" class="form-control" id="search-field" placeholder="Type what you want and enter">
+          </label>
+          <span class="search-close">&times;</span>
+        </div><!-- Site search end -->
+    </div>
+    <!--/ Container end -->
+
+  </div>
+  <!--/ Navigation end -->
+</header>
+<!--/ Header end -->
+<div class="banner-carousel banner-carousel-1 mb-0">
+  <div class="banner-carousel-item" style="background-image:url('{{ asset('cimenterie.jpg') }}')">
+    <div class="slider-content">
+        <div class="container h-100">
+          <div class="row align-items-center h-100">
+              <div class="col-md-12 text-center">
+                <h2 class="slide-title" data-animation-in="slideInLeft">51 ans d'excellence en</h2>
+                <h3 class="slide-sub-title" data-animation-in="slideInRight">Fabrication de  ciments</h3>
+                <p data-animation-in="slideInLeft" data-duration-in="1.2">
+                    <a href="services.html" class="slider btn btn-primary">Nos Services</a>
+                    <a href="contact.html" class="slider btn btn-primary border">Contactez-nous</a>
+                </p>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="banner-carousel-item" style="background-image:url('{{ asset('front2.jpg') }}')">
+    <div class="slider-content text-left">
+        <div class="container h-100">
+          <div class="row align-items-center h-100">
+              <div class="col-md-12">
+                <h2 class="slide-title-box" data-animation-in="slideInDown"> Service de classe mondiale </h2>
+                <h3 class="slide-title" data-animation-in="fadeIn"> Quand le service compte </h3>
+                <h3 class="slide-sub-title" data-animation-in="slideInLeft">Ton choix est Simple</h3>
+                <p data-animation-in="slideInRight">
+                    <a href="services.html" class="slider btn btn-primary border">Nos Services</a>
+                </p>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="banner-carousel-item" style="background-image:url('{{ asset('ggg.jpg') }}'g)">
+    <div class="slider-content text-right">
+        <div class="container h-100">
+          <div class="row align-items-center h-100">
+              <div class="col-md-12">
+                <h2 class="slide-title" data-animation-in="slideInDown">Rencontrez nos ingénieurs</h2>
+                <h3 class="slide-sub-title" data-animation-in="fadeIn">Nous croyons en la durabilité</h3>
+                <p class="slider-description lead" data-animation-in="slideInRight">Nous traiterons de votre échec qui déterminera la manière dont vous réussirez.</p>
+                <div data-animation-in="slideInLeft">
+                    <a href="about.html" class="slider btn btn-primary border" aria-label="learn-more-about-us">Lire plus</a>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<section class="call-to-action-box no-padding">
+  <div class="container">
+    <div class="action-style-box">
+        <div class="row align-items-center">
+<!-- Col end -->
+        </div><!-- row end -->
+    </div><!-- Action style box -->
+  </div><!-- Container end -->
+</section><!-- Action end -->
+
+<section id="ts-features" class="ts-features">
+  <div class="container">
+    <div class="row">
+    <div class="col-xl-8 mb-30">
+        <div class="card-box height-100-p pd-20">
+            <h2 class="h4 mb-20">Les Etats des Badges</h2>
+            {{ form(form) }}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card-box height-100-p pd-20">
+            <h2 class="h4 mb-20">Liste des Badges</h2>
+            <table class="data-table table stripe hover nowrap">
+                <thead>
+                    <tr>
+                        <th class="table-plus datatable-nosort">code</th>
+                         <th>date de creation</th>
+                          <th>date d expiration</th>
+                         <th>Etat de badge</th>
+                          <th>Qr code</th>
+                        <th class="datatable-nosort">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for b in badgess %}
+                    <tr>
+                        <td class="table-plus">{{ b.code }}</td>
+                        <td>{{ b.datecreation|date('Y-m-d') }}</td>
+                        <td>{{ b.datexpiration|date('Y-m-d') }}</td>
+                        <td>{{ b.idetat.libelle  }}</td>
+                              <td>            <div class="qrcode">
+                <!-- Lien vers une API fictive de génération de QR code (à remplacer par une vraie API) -->
+                <img src="https://api.qrserver.com/v1/create-qr-code/?data=code{{ b.code }}datecreation{{ b.datecreation|date('Y-m-d') }}dateexpiration :{{ b.datexpiration|date('Y-m-d') }}&size=50x50" alt="QR code">
+            </div></td>
+                        <td>
+                        <a href="{{ path('app_badgeee', {'idba': b.idba}) }}" ><i class="fa-regular fa-eye"></i></a>
+						            <a href="{{ path('app_modifierrbadge', {'id': b.idba}) }}" ><i class="fa-solid fa-pen-to-square"></i> </a>
+                                    <a href="{{ path('app_supprimerrbadge', {'id': b.idba }) }}" ><i class="fa-solid fa-trash"></i></a>
+            
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<section id="facts" class="facts-area dark-bg">
+  <div class="container">
+    <div class="facts-wrapper">
+        <div class="row">
+          <div class="col-md-3 col-sm-6 ts-facts">
+              <div class="ts-facts-img">
+                <img loading="lazy" src="{{asset('images/icon-image/fact1.png')}}" alt="facts-img">
+              </div>
+              <div class="ts-facts-content">
+                <h2 class="ts-facts-num"><span class="counterUp" data-count="{{departements}}">0</span></h2>
+                <h3 class="ts-facts-title">Les departements</h3>
+              </div>
+          </div><!-- Col end -->
+
+          <div class="col-md-3 col-sm-6 ts-facts mt-5 mt-sm-0">
+              <div class="ts-facts-img">
+                <img loading="lazy" src="{{asset('images/icon-image/fact2.png')}}" alt="facts-img">
+              </div>
+              <div class="ts-facts-content">
+                <h2 class="ts-facts-num"><span class="counterUp" data-count="{{visiteurs}}">0</span></h2>
+                <h3 class="ts-facts-title">Les Visiteurs</h3>
+              </div>
+          </div><!-- Col end -->
+
+          <div class="col-md-3 col-sm-6 ts-facts mt-5 mt-md-0">
+              <div class="ts-facts-img">
+                <img loading="lazy" src="{{asset('images/icon-image/fact3.png')}}" alt="facts-img">
+              </div>
+              <div class="ts-facts-content">
+                <h2 class="ts-facts-num"><span class="counterUp" data-count="{{visites}}">0</span></h2>
+                <h3 class="ts-facts-title"> Les visites</h3>
+              </div>
+          </div><!-- Col end -->
+
+          <div class="col-md-3 col-sm-6 ts-facts mt-5 mt-md-0">
+              <div class="ts-facts-img">
+                <img loading="lazy" src="{{asset('images/icon-image/fact4.png')}}" alt="facts-img">
+              </div>
+              <div class="ts-facts-content">
+                <h2 class="ts-facts-num"><span class="counterUp" data-count="{{badges}}">0</span></h2>
+                <h3 class="ts-facts-title">Les badges</h3>
+              </div>
+          </div><!-- Col end -->
+
+        </div> <!-- Facts end -->
+    </div>
+    <!--/ Content row end -->
+  </div>
+  <!--/ Container end -->
+</section><!-- Facts end -->
+
+
+  
+    <!--/ Title row end -->
+
+    
+
+          
+  <!--/ Container end -->
+
+<section id="project-area" class="project-area solid-bg">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-lg-12">
+        <h3 class="section-sub-title">Nos produits</h3>
+      </div>
+    </div>
+    <!--/ Title row end -->
+
+    <div class="row">
+      <div class="col-12">
+        <div class="shuffle-btn-group">
+          <label class="active" for="all">
+            <input type="radio" name="shuffle-filter" id="all" value="all" checked="checked">Voir tout
+          </label>
+        </div><!-- project filter end -->
+
+
+        <div class="row shuffle-wrapper">
+          <div class="col-1 shuffle-sizer"></div>
+
+          <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;government&quot;,&quot;healthcare&quot;]">
+            <div class="project-img-container">
+              <a class="gallery-popup" href="{{asset('img/a.jpg')}}" aria-label="project-img">
+                <img class="img-fluid" src="{{asset('img/a.jpg')}}" alt="project-img">
+                <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+              </a>
+              <div class="project-item-info">
+                <div class="project-item-info-content">
+             
+                  <p class="project-cat">CEM I 42,5 N</p>
+                </div>
+              </div>
+            </div>
+          </div><!-- shuffle item 1 end -->
+
+          <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;healthcare&quot;]">
+            <div class="project-img-container">
+              <a class="gallery-popup" href="{{asset('img/b.jpg')}}" aria-label="project-img">
+                <img class="img-fluid" src="{{asset('img/b.jpg')}}" alt="project-img">
+                <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+              </a>
+              <div class="project-item-info">
+                <div class="project-item-info-content">                
+                  <p class="project-cat">CEM I 42,5 N SR-3
+</p>
+                </div>
+              </div>
+            </div>
+          </div><!-- shuffle item 2 end -->
+
+          <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;infrastructure&quot;,&quot;commercial&quot;]">
+            <div class="project-img-container">
+              <a class="gallery-popup" href="{{asset('img/c.jpg')}}" aria-label="project-img">
+                <img class="img-fluid" src="{{asset('img/c.jpg')}}" alt="project-img">
+                <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+              </a>
+              <div class="project-item-info">
+                <div class="project-item-info-content">
+                
+                  <p class="project-cat">CEM I 42,5 R vrac destiné à l’export vers l’Europe.
+</p>
+                </div>
+              </div>
+            </div>
+          </div><!-- shuffle item 3 end -->
+
+          <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;education&quot;,&quot;infrastructure&quot;]">
+            <div class="project-img-container">
+              <a class="gallery-popup" href="{{asset('img/d.jpg')}}" aria-label="project-img">
+                <img class="img-fluid" src="{{asset('img/d.jpg')}}" alt="project-img">
+                <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+              </a>
+              <div class="project-item-info">
+                <div class="project-item-info-content">
+                 
+                  <p class="project-cat">CEM II/A-L 42,5 R
+</p>
+                </div>
+              </div>
+            </div>
+          </div><!-- shuffle item 4 end -->
+
+          <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;infrastructure&quot;,&quot;education&quot;]">
+            <div class="project-img-container">
+              <a class="gallery-popup" href="{{asset('img/e.jpg')}}" aria-label="project-img">
+                <img class="img-fluid" src="{{asset('img/e.jpg')}}" alt="project-img">
+                <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+              </a>
+              <div class="project-item-info">
+                <div class="project-item-info-content">
+               
+                  <p class="project-cat">CEM II/A-L 32,5 N
+</p>
+                </div>
+              </div>
+            </div>
+          </div><!-- shuffle item 5 end -->
+
+          <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;residential&quot;]">
+            <div class="project-img-container">
+              <a class="gallery-popup" href="{{asset('img/f.jpg')}}" aria-label="project-img">
+                <img class="img-fluid" src="{{asset('img/f.jpg')}}" alt="project-img">
+                <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+              </a>
+              <div class="project-item-info">
+                <div class="project-item-info-content">
+                 
+                  <p class="project-cat">CEMII/B-L 32,5 N
+</p>
+                </div>
+              </div>
+            </div>
+          </div><!-- shuffle item 6 end -->
+        </div><!-- shuffle end -->
+      </div>
+
+
+
+    </div><!-- Content row end -->
+  </div>
+  <!--/ Container end -->
+</section><!-- Project area end -->
+
+
+
+<!--/ subscribe end -->
+
+
+
+  <footer id="footer" class="footer bg-overlay">
+    <div class="footer-main">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-lg-4 col-md-6 footer-widget footer-about">
+            <h3 class="widget-title">About Us</h3>
+            <img loading="lazy" width="100px" class="footer-logo" src="{{asset('scgg.png')}}">
+
+            <div class="footer-social">
+              <ul>
+                <li><a href="https://www.facebook.com/eyaanasfi/" aria-label="Facebook"><i
+                      class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.instagram.com/eyaa_nasfi/" aria-label="Instagram"><i
+                      class="fab fa-instagram"></i></a></li>
+                <li><a href="https://github.com/EyaNasfi" aria-label="Github"><i class="fab fa-github"></i></a></li>
+              </ul>
+            </div><!-- Footer social end -->
+          </div><!-- Col end -->
+
+          <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
+            <h3 class="widget-title">Heures de travail</h3>
+            <div class="working-hours">
+               Nous travaillons 7 jours sur 7, tous les jours hors jours fériés.
+               Contactez-nous en cas d'urgence, avec notre Hotline et notre formulaire de contact.
+
+              <br><br> Lundi - Jeudi: <span class="text-right">7:30 - 14:30 </span>
+              <br> Vendredi: <span class="text-right">7:30 - 13:00</span>
+            </div>
+          </div><!-- Col end -->
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
+            <h3 class="widget-title">Services</h3>
+
+          </div><!-- Col end -->
+        </div><!-- Row end -->
+      </div><!-- Container end -->
+    </div><!-- Footer main end -->
+
+    <div class="copyright">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="copyright-info">
+              <span>Copyright &copy; <script>
+                  document.write(new Date().getFullYear())
+                </script>, Designed &amp; Developed by <a href="https://github.com/EyaNasfi">Nasfi Eya</a></span>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="footer-menu text-center text-md-right">
+              <ul class="list-unstyled">
+                <li><a href="about.html">A propos</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div><!-- Row end -->
+
+        <div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top position-fixed">
+          <button class="btn btn-primary" title="Back to Top">
+            <i class="fa fa-angle-double-up"></i>
+          </button>
+        </div>
+
+      </div><!-- Container end -->
+    </div><!-- Copyright end -->
+  </footer><!-- Footer end -->
+
+
+  <!-- Javascript Files
+  ================================================== -->
+
+  <!-- initialize jQuery Library -->
+  <script src="{{asset('plugins/jQuery/jquery.min.js')}}"></script>
+  <!-- Bootstrap jQuery -->
+  <script src="{{asset('plugins/bootstrap/bootstrap.min.js')}}" defer></script>
+  <!-- Slick Carousel -->
+  <script src="{{asset('plugins/slick/slick.min.js')}}"></script>
+  <script src="{{asset('plugins/slick/slick-animation.min.js')}}"></script>
+  <!-- Color box -->
+  <script src="{{asset('plugins/colorbox/jquery.colorbox.js')}}"></script>
+  <!-- shuffle -->
+  <script src="{{asset('plugins/shuffle/shuffle.min.js')}}" defer></script>
+
+
+  <!-- Google Map API Key-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+  <!-- Google Map Plugin-->
+  <script src="{{asset('plugins/google-map/map.js')}}" defer></script>
+
+  <!-- Template custom -->
+  <script src="{{asset('js/script.js')}}"></script>
+
+  </div><!-- Body inner end -->
+  </body>
+
+  </html>
